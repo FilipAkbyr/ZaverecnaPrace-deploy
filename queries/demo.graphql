@@ -1,0 +1,40 @@
+query HousesQuery{
+  properties {
+    id
+    description
+    price
+    city
+  }
+}
+
+query HouseQuery($propertyId: ID!) {
+  property(propertyId: $propertyId) {
+    id
+    description
+    price
+    city
+  }
+}
+
+query UserData($email: String!) {
+  user(userEmail: $email) {
+    id
+    email
+    role
+    username
+  }
+}
+
+mutation AddHouseMutation($description: String!, $price: Int!, $city: String!) {
+  addHouse( description: $description, price: $price, city: $city) {
+    description
+    price
+    city
+  }
+}
+
+mutation DeleteHouseMutation($propertyId: ID!) {
+  deleteHouse(propertyId: $propertyId) {
+    id
+  }
+}
